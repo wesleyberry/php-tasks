@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-include(dirname(__DIR__).'app/Models/Task.php');
+// set_include_path(get_include_path() . PATH_SEPARATOR . 'C:\xampp\htdocs\k2');
 
-import_request_variables('pgc', '');
+require("../../Models/Task.php");
+
 
 class TasksController extends Controller
 {

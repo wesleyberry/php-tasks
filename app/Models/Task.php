@@ -9,3 +9,4 @@ class Task extends Model
     //Define the table
     protected $table = 'tasks';
 }
+?>
