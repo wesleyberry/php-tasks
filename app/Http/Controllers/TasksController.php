@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+include(dirname(__DIR__).'app/Models/Task.php');
+
+import_request_variables('pgc', '');
+
 class TasksController extends Controller
 {
     /**
@@ -34,7 +38,29 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate data
+        $this->validate($request, [
+            'name' => 'required|string|max:255|min:3',
+            'description' => 'required|string|max:10000|min:10',
+            'due_date' => 'required|date'
+        ]);
+
+        // Create new task
+        $task = new Task;
+
+        // Assign the Task data from our request
+        $task->name = $request->name;
+        $task->description = $request->description;
+        $task->due_date = $request->date;
+
+        // Save the task
+        $task->save();
+
+        // Show message of success
+        Session::flash('success', 'Created Task Successfully');
+
+        // Return redirect
+        return redirect()->route('task.create');
     }
 
     /**

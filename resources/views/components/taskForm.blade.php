@@ -6,8 +6,8 @@
     {{ Form::label('description', 'Task Description', ['class' => 'control-label mt-3']) }}
     {{ Form::textarea('description', null, ['class' => 'form-control', 'placeholder' => 'Task Description']) }}
 
-    {{ Form::label('date', 'Due Date', ['class' => 'control-label mt-3']) }}
-    {{ Form::date('date', \Carbon\Carbon::now(), ['class' => 'form-control']) }}
+    {{ Form::label('due_date', 'Due Date', ['class' => 'control-label mt-3']) }}
+    {{ Form::date('due_date', \Carbon\Carbon::now(), ['class' => 'form-control']) }}
 
     <div class="row justify-content-center">
         <div class="col-sm-6">

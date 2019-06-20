@@ -10,6 +10,8 @@
 <body>
 
     <div class="container mt-3">
+        @include('partials.messages')
+
         @yield('content')
     </div>
 
